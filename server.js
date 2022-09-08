@@ -1,10 +1,13 @@
 const express = require('express');
 const webRouter = require("./routers/web.router");
 const apiRouter = require("./routers/api.router");
-const session = require('express-session');
+const bodyParser = require('body-parser');
 const path = require("path");
 const app = express();
 const port = 8080;
+
+app.use(bodyParser.json())
+
 // static file
 app.use(express.static(path.join(__dirname, 'public')));
 // set views
